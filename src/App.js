@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Quiz from './components/Quiz';
 
 function App() {
+  const questions=[
+    { id: 1, question: "What is React JS?", option1:"Used For frontend",option2:"used for backend",option3:"framework ", option4:"All of the above"},
+    { id: 2, question: "What is Virtual Dom?", option1:"Used For Rendering",option2:"Avoid Refresh",option3:"None Of the Above ", option4:"All of the above"},
+    { id: 3, question: "What is ES6", option1:"Used For Rendering",option2:"Avoid Refresh",option3:"None Of the Above ", option4:"All of the above"},
+    { id: 4, question: "What is Java", option1:"Used For webdevelopment",option2:"web",option3:"None Of the Above ", option4:"All of the above"}
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Quiz questions={questions} />
     </div>
   );
 }
