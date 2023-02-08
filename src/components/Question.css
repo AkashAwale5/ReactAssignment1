@@ -10,7 +10,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.qustion-item {
+.question-item {
   width: 100%;
   height: 4%;
   border: 1px solid #ececec;
@@ -36,6 +36,7 @@
 
 .question_page{
   text-align: end;
-  font-size: 8px;
+  font-size: 10px;
+  color:black;
 }
 

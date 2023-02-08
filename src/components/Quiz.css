@@ -13,16 +13,17 @@
 
 .quizfull {
     padding: 1rem;
-    background-color: rgba(170, 188, 240, 0.902);
+    background-color: rgba(44, 133, 216, 0.902);
     margin: 2rem auto;
-    width: 60rem;
+    width: 50rem;
     max-width: 100%;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 .quiz_totalque {
     text-align: left;
     display: flex;
+    font-size: 10px;
 }
 
 .quiz__time {

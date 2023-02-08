@@ -1,24 +1,52 @@
 import Question from "./Question";
 import "./Quiz.css";
 
+import QuestionFiltter from "./QuestionFiltter";
+import { useState } from "react";
 
-const Questions = (props) => {
+const Quiz = (props) => {
     const { questions } = props;
-    const len = Object.keys(questions).length
 
+    //button on change
     const onClickHandle = () => {
         alert("Submitted Successfully !!!");
+        console.log(questions);
     };
+    //-----Filtter logic----------------------------------------
+    const [filteredCategory, setFilteredCategory] = useState("React");
+    const filterChangeHandler = (selectedCategory) => {
+        setFilteredCategory(selectedCategory);
+    };
+    const filtteredQuestions = questions.filter((question) => {
+        return question.category === filteredCategory;
+    })
+
+    //display questions 
+    let length1 = filtteredQuestions.length
+    let questioncontent = <p>There is No Quiz in {filteredCategory} </p>;
+    if (filtteredQuestions.length > 0) {
+        questioncontent = filtteredQuestions.map((question, index) => {
+            return (
+                <div>
+                    <Question key={question.id} question={question} len={length1} index={index} />
+                    <hr />
+                </div>
+            )
+        });
+    }
+
     return (
         <div className="quizfull">
-            <h1>Quiz-App</h1>
             <div className="quiz_totalque">
-                <h2>Total Que: {len}</h2>
-                <h2 className="quiz__time">Time:10 Min</h2></div>
-
-            {questions.map((question) => {
-                return <Question key={question.id} question={question} />;
-            })}
+                <h2>Total Que: {length1}</h2>
+                <h2 className="quiz__time">Time:10 Min</h2>
+            </div>
+            {/* //apply  filtter */}
+            <QuestionFiltter
+                selected={filteredCategory}
+                onChangeFilter={filterChangeHandler}
+            />
+            {questioncontent}
             <div>
                 <button className="quiz_submitbtn" onClick={onClickHandle}>Submit</button>
             </div>
@@ -26,4 +54,4 @@ const Questions = (props) => {
     );
 };
 
-export default Questions;
+export default Quiz;
